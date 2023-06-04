@@ -1,0 +1,37 @@
+
+@import "theme.scss";
+
+body {
+  margin:0;
+  padding:0;
+  // default style params
+  @extend .theme-default;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin: var(--content-margin);
+  line-height: var(--content-line-height);
+}
+
+.container {
+  margin: var(--container-margin);
+  padding: var(--container-padding);
+  border: var(--container-border);
+  border-radius: var(--container-border-radius);
+  box-shadow: var(--container-box-shadow);
+}
+
+.app {
+  margin:0;
+  padding:0;
+  position: absolute;
+  min-height:100vh;
+  min-width: 100vw;
+  background-color: var(--body-bg);
+  color: var(--txt-primary);
+}

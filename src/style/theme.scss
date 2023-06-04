@@ -1,0 +1,28 @@
+.theme-default {
+  // colors
+  --body-bg: #333;
+  --txt-primary: #CCC;
+  --txt-secondary: #999;
+  // components
+  // content
+  --content-margin: 1em;
+  --content-line-height: 1.2em;
+  // container
+  --container-margin: .5em;
+  --container-padding: .5em;
+  --container-border: 1px solid var(--txt-secondary);
+  --container-border-radius: .5em;
+  --container-box-shadow: .25em .25em .25em .25em rgba(0, 0, 0, .5);
+}
+
+.theme-dark {
+  --body-bg: #000;
+  --txt-primary: #fff;
+  --txt-secondary: #CCC;
+}
+
+.theme-light {
+  --body-bg: #FFF;
+  --txt-primary: #333;
+  --txt-secondary: #666;
+}

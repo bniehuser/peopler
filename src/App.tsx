@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './style/app.scss';
+
+type Theme = "light" | "dark" | "default"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [theme, setTheme] = useState<Theme>("default");
+
+    return (
+        <div className={["app", `theme-${theme}`].join(' ')}>
+            <div className="content">
+                <div className="container">
+                    so yeah, we're doing this again.<br/>
+                    <select onChange={(e) => setTheme(e.target.value as Theme)}>
+                        <option value={"default"}>default theme</option>
+                        <option value={"dark"}>dark theme</option>
+                        <option value={"light"}>light theme</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;

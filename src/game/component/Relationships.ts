@@ -10,4 +10,10 @@ type RelationshipsData = {
     romanticRelationships: RelationshipProperties[];
     militaryChainOfCommand: RelationshipProperties[];
 }
-export class RelationshipsComponent extends Component<RelationshipsData> {}
+export class RelationshipsComponent extends Component<RelationshipsData> {
+    _defaultData = {
+        familialRelationships: [],
+        romanticRelationships: [],
+        militaryChainOfCommand: [],
+    }
+}

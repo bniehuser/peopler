@@ -6,4 +6,11 @@ type BehaviorData = {
     targetEntityId: number;
     targetInventoryItemId: number;
 }
-export class BehaviorComponent extends Component<BehaviorData> {}
+export class BehaviorComponent extends Component<BehaviorData> {
+    _defaultData = {
+        behavior: "idle",
+        subBehavior: "",
+        targetEntityId: -1,
+        targetInventoryItemId: -1,
+    }
+}

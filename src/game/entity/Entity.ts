@@ -1,23 +1,52 @@
-import { CharacteristicsComponent, MoodComponent, RelationshipsComponent, BehaviorComponent } from "../component";
+import {
+    CharacteristicsComponent,
+    MoodComponent,
+    RelationshipsComponent,
+    BehaviorComponent,
+    Component
+} from "../component";
 
 const ComponentClasses = {
-    behavior: BehaviorComponent,
+    relationships: RelationshipsComponent,
     characteristics: CharacteristicsComponent,
     mood: MoodComponent,
-    relationships: RelationshipsComponent,
-};
-type ComponentClassesType = typeof ComponentClasses;
-type ComponentConfig = {[k: keyof ComponentClassesType]: typeof ComponentClasses[k].data};
+    behavior: BehaviorComponent,
+} as const;
+type ComponentMap = typeof ComponentClasses
+type ComponentProp = keyof ComponentMap;
+type ComponentClass = ComponentMap[ComponentProp];
+type ComponentData = {[k in ComponentProp]: any}
 
-class Entity<T = Partial<ComponentConfig>> {
-    components: T
-    constructor(data: T|undefined = undefined) {
-        if(data) {
-            Object.keys(data).forEach(
-                (k: keyof ComponentConfig) => data[k] = new (ComponentClasses[k])(data[k])
-            )
-        }
-        this.components = data || {} as T;
+type EntityData = {
+    id?: number|undefined;
+    components?: Partial<ComponentData>|undefined;
+}
+
+let ENTITY_ID = 1;
+
+class Entity {
+    entityId: number;
+    components: Map<ComponentProp, ComponentClass>
+    constructor(data: EntityData) {
+        this.entityId = data?.id || ENTITY_ID++;
+        this.components = new Map<ComponentProp, ComponentClass>();
+        Object.keys(data?.components || {}).forEach(
+            (k) => {
+                if(k in ComponentClasses) {
+                    const componentClass: ComponentClass = ComponentClasses[k as ComponentProp];
+                    const componentData: ComponentData = data.components?.[k as ComponentProp];
+                    this.components.set(k as ComponentProp, new componentClass(componentData));
+                }
+            }
+        )
     }
-    fromJson = (data): typeof self => new self();
+    toJson = (): EntityData => {
+      const components: Partial<ComponentData> = {};
+      Object.keys(this.components).forEach(k => components[k as ComponentProp] = this.components.get(k)?.data)
+      return {
+          id: this.entityId,
+          components,
+      };
+    };
+    static fromJson = (data: EntityData): Entity => new this(data);
 }

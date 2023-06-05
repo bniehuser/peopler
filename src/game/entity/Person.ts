@@ -3,6 +3,7 @@
 import { CharacteristicsComponent } from "../component/Characteristics";
 import { MoodComponent } from "../component/Mood";
 import { RelationshipsComponent } from "../component/Relationships";
+import { BehaviorComponent } from "../component/Behavior";
 
 class CombatStatisticsComponent {
     attackDamage: number;
@@ -13,20 +14,6 @@ class CombatStatisticsComponent {
         this.attackDamage = 10;
         this.defense = 5;
         this.evasion = 2;
-    }
-}
-
-class BehaviorComponent {
-    behavior: string;
-    subBehavior: string;
-    targetEntityId: number;
-    targetInventoryItemId: number;
-
-    constructor() {
-        this.behavior = "idle";
-        this.subBehavior = "";
-        this.targetEntityId = -1;
-        this.targetInventoryItemId = -1;
     }
 }
 

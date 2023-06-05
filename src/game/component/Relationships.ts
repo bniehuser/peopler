@@ -1,17 +1,11 @@
-interface RelationshipProperties {
+type RelationshipProperties = {
     relationshipType: string;
     friendshipLevel: number;
     romanceLevel: number;
 }
-
-export class RelationshipsComponent {
+type RelationshipsData = {
     familialRelationships: RelationshipProperties[];
     romanticRelationships: RelationshipProperties[];
     militaryChainOfCommand: RelationshipProperties[];
-
-    constructor() {
-        this.familialRelationships = [];
-        this.romanticRelationships = [];
-        this.militaryChainOfCommand = [];
-    }
 }
+export class RelationshipsComponent extends Component<RelationshipsData> {}

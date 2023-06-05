@@ -5,4 +5,8 @@ export abstract class Component<T> {
         this.data = Object.assign({}, this.defaultData, data);
     }
     get defaultData() { return this._defaultData; }
+
+    toJson = () => this.data;
+    static fromJson<T>(this: {new(data: Partial<T>): Component<T>}, data: Partial<T>): Component<T> { return new this(data); }
+
 }

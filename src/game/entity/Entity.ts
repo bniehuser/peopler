@@ -2,8 +2,7 @@ import {
     CharacteristicsComponent,
     MoodComponent,
     RelationshipsComponent,
-    BehaviorComponent,
-    Component
+    BehaviorComponent
 } from "../component";
 
 const ComponentClasses = {
@@ -30,15 +29,12 @@ class Entity {
     constructor(data: EntityData) {
         this.entityId = data?.id || ENTITY_ID++;
         this.components = new Map<ComponentProp, ComponentClass>();
-        Object.keys(data?.components || {}).forEach(
-            (k) => {
-                if(k in ComponentClasses) {
-                    const componentClass: ComponentClass = ComponentClasses[k as ComponentProp];
-                    const componentData: ComponentData = data.components?.[k as ComponentProp];
-                    this.components.set(k as ComponentProp, new componentClass(componentData));
-                }
-            }
-        )
+        for(const k_str in ComponentClasses) {
+            const k = k_str as ComponentProp;
+            const componentClass: ComponentClass = ComponentClasses[k];
+            const componentData: ComponentData = data.components?.[k];
+            this.components.set(k, componentClass.fromJson(componentData));
+        }
     }
     toJson = (): EntityData => {
       const components: Partial<ComponentData> = {};

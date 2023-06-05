@@ -1,3 +1,5 @@
+import { Component } from "./Component";
+
 type RelationshipProperties = {
     relationshipType: string;
     friendshipLevel: number;

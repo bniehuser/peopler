@@ -1,3 +1,5 @@
+import { Component } from "./Component";
+
 type MoodData = {
     happiness: number;
     healthFactor: number;

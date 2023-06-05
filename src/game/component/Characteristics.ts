@@ -1,3 +1,5 @@
+import { Component } from "./Component";
+
 type CharacteristicsData = {
     happiness: number;
     health: number;

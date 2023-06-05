@@ -1,3 +1,5 @@
+import { Component } from "./Component";
+
 type BehaviorData = {
     behavior: string;
     subBehavior: string;

@@ -1,0 +1,134 @@
+{
+  "treeId": 1,
+  "root": {
+    "type": "sequence",
+    "children": [
+      {
+        "type": "selector",
+        "children": [
+          {
+            "type": "condition",
+            "condition": "IsHostile",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "condition",
+            "condition": "IsFriend",
+            "params": {
+              "target": "other_townsperson"
+            }
+          }
+        ]
+      },
+      {
+        "type": "condition",
+        "condition": "ShouldAttack",
+        "params": {
+          "target": "other_townsperson"
+        }
+      },
+      {
+        "type": "sequence",
+        "children": [
+          {
+            "type": "condition",
+            "condition": "ShouldChat",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "action",
+            "action": "InitiateChat",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "condition",
+            "condition": "SuccessfulChat",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "action",
+            "action": "IncreaseFriendship",
+            "params": {
+              "target": "other_townsperson"
+            }
+          }
+        ]
+      },
+      {
+        "type": "sequence",
+        "children": [
+          {
+            "type": "condition",
+            "condition": "IsMerchant",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "condition",
+            "condition": "HasEnoughGold",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "action",
+            "action": "BuyItem",
+            "params": {
+              "target": "other_townsperson",
+              "item": "desired_item"
+            }
+          }
+        ]
+      },
+      {
+        "type": "sequence",
+        "children": [
+          {
+            "type": "condition",
+            "condition": "IsRomanticInterest",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "condition",
+            "condition": "HasEnoughGold",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "action",
+            "action": "InitiateDate",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "condition",
+            "condition": "SuccessfulDate",
+            "params": {
+              "target": "other_townsperson"
+            }
+          },
+          {
+            "type": "action",
+            "action": "IncreaseRomance",
+            "params": {
+              "target": "other_townsperson"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

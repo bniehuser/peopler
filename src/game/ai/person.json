@@ -1,0 +1,115 @@
+{
+  "entityId": 123,
+  "components": [
+    {
+      "componentType": "IdentityComponent",
+      "name": "John Smith",
+      "age": 35
+    },
+    {
+      "componentType": "OccupationComponent",
+      "occupation": "Blacksmith"
+    },
+    {
+      "componentType": "RankComponent",
+      "rank": "Infantry Captain"
+    },
+    {
+      "componentType": "CharacteristicsComponent",
+      "happiness": 0.8,
+      "health": 100,
+      "stamina": 80,
+      "strength": 70,
+      "agility": 60,
+      "intelligence": 80
+    },
+    {
+      "componentType": "MoodComponent",
+      "mood": {
+        "happiness": 0,
+        "healthFactor": 0,
+        "staminaFactor": 0,
+        "strengthFactor": 0,
+        "agilityFactor": 0,
+        "intelligenceFactor": 0
+      }
+    },
+    {
+      "componentType": "SkillsComponent",
+      "skills": {
+        "blacksmithing": 0.9,
+        "leadership": 0.7,
+        "combat": 0.8
+      }
+    },
+    {
+      "componentType": "RelationshipsComponent",
+      "relationships": [
+        {
+          "entityId": 456,
+          "relationshipType": "Spouse",
+          "intimacyLevel": 0.9,
+          "trustLevel": 0.8
+        },
+        {
+          "entityId": 789,
+          "relationshipType": "Child",
+          "intimacyLevel": 0.7,
+          "trustLevel": 0.6
+        },
+        {
+          "entityId": 567,
+          "relationshipType": "Military Superior",
+          "intimacyLevel": 0.5,
+          "trustLevel": 0.7
+        }
+      ]
+    },
+    {
+      "componentType": "CombatStatsComponent",
+      "attackPower": 50,
+      "defense": 40,
+      "criticalChance": 0.2,
+      "evasion": 0.15
+    },
+    {
+      "componentType": "BehaviorComponent",
+      "behavior": "idle"
+    },
+    {
+      "componentType": "LocationComponent",
+      "location": "blacksmith_shop"
+    },
+    {
+      "componentType": "EquipmentComponent",
+      "equipment": {
+        "weapon": "sword",
+        "armor": "plate mail"
+      }
+    },
+    {
+      "componentType": "InventoryComponent",
+      "items": [
+        {
+          "itemId": 1,
+          "quantity": 5
+        },
+        {
+          "itemId": 2,
+          "quantity": 10
+        }
+      ],
+      "equippedItems": [
+        {
+          "itemId": 3,
+          "slot": "weapon"
+        },
+        {
+          "itemId": 4,
+          "slot": "armor"
+        }
+      ]
+    }
+  ]
+}
+
